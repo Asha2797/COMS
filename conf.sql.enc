@@ -1,0 +1,162 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 26, 2018 at 01:19 AM
+-- Server version: 5.5.8
+-- PHP Version: 5.3.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `conf`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `author`
+--
+
+CREATE TABLE IF NOT EXISTS `author` (
+  `auth_id` int(15) NOT NULL,
+  `auth_name` varchar(15) NOT NULL,
+  `auth_city` varchar(50) NOT NULL,
+  `password` varchar(10) NOT NULL,
+  `auth_email` varchar(20) NOT NULL,
+  `phno` int(10) NOT NULL,
+  PRIMARY KEY (`auth_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `author`
+--
+
+INSERT INTO `author` (`auth_id`, `auth_name`, `auth_city`, `password`, `auth_email`, `phno`) VALUES
+(872285, 'Thejas', 'hassan', '1234', 'thejaskumar.vr77@gma', 2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `confer`
+--
+
+CREATE TABLE IF NOT EXISTS `confer` (
+  `auth_id` int(10) NOT NULL,
+  `pid` int(10) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `domain` varchar(20) NOT NULL,
+  `cnf_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `confer`
+--
+
+INSERT INTO `confer` (`auth_id`, `pid`, `title`, `domain`, `cnf_date`) VALUES
+(872285, 1234, 'network', 'Networks', '2018-11-06'),
+(872285, 8722, 'jhgf', 'Networks', '2018-11-12'),
+(872285, 123456, 'gtyh', 'Networks', '2018-11-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coordinator`
+--
+
+CREATE TABLE IF NOT EXISTS `coordinator` (
+  `co_id` int(10) NOT NULL,
+  `password` varchar(15) NOT NULL,
+  PRIMARY KEY (`co_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `coordinator`
+--
+
+INSERT INTO `coordinator` (`co_id`, `password`) VALUES
+(1234, '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paper_p`
+--
+
+CREATE TABLE IF NOT EXISTS `paper_p` (
+  `auth_id` int(10) NOT NULL,
+  `pid` int(10) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `domain` varchar(20) NOT NULL,
+  `sub_date` date NOT NULL,
+  `file` varchar(30) NOT NULL,
+  `status` varchar(30) NOT NULL,
+  `comments` varchar(30) NOT NULL,
+  `feedback` varchar(50) NOT NULL,
+  `conf` varchar(30) NOT NULL,
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `paper_p`
+--
+
+INSERT INTO `paper_p` (`auth_id`, `pid`, `title`, `domain`, `sub_date`, `file`, `status`, `comments`, `feedback`, `conf`) VALUES
+(0, 0, '', 'ne', '2018-11-26', 'IMG-20150523-WA0014.jpg', '', '', '', ''),
+(872285, 1234, 'network', 'Networks', '2018-11-13', 'IMG-20150523-WA0014.jpg', 'accept', 'good', '', '1'),
+(872285, 1235, 'hsskshs', 'Networks', '2018-11-26', 'Web.docx', 'reject', 'bad', '', ''),
+(872285, 7453, 'jjhhdgd', 'Networks', '2018-11-26', 'certificate.html', 'reject', 'poor', '', ''),
+(872285, 8722, 'jhgf', 'Networks', '2018-11-14', 'IMG-20150523-WA0012.jpg', 'accept', 'fine', '', '1'),
+(872285, 123456, 'gtyh', 'Networks', '2018-11-14', 'IMG-20150523-WA0013.jpg', 'accept', 'good', '', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviewer`
+--
+
+CREATE TABLE IF NOT EXISTS `reviewer` (
+  `rev_id` int(15) NOT NULL,
+  `rev_name` varchar(15) NOT NULL,
+  `rev_city` varchar(50) NOT NULL,
+  `password` varchar(10) NOT NULL,
+  `rev_email` varchar(20) NOT NULL,
+  `rev_phno` int(10) NOT NULL,
+  `domain` varchar(20) NOT NULL,
+  PRIMARY KEY (`rev_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reviewer`
+--
+
+INSERT INTO `reviewer` (`rev_id`, `rev_name`, `rev_city`, `password`, `rev_email`, `rev_phno`, `domain`) VALUES
+(1234, 'dileep', 'cnpt', '1234', 'dileepgowda@gmail.co', 2147483647, 'Cloud Computing'),
+(9865, 'theju', 'hasssan', '1234', 'thejaskumar.vr77@gma', 2147483647, 'Networks'),
+(54321, 'theju', 'hasssan', '1234', 'thejaskumar.vr77@gma', 2147483647, 'Networks');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test`
+--
+
+CREATE TABLE IF NOT EXISTS `test` (
+  `fname` varchar(20) NOT NULL,
+  `lname` varchar(20) NOT NULL,
+  `file` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `size` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test`
+--
+
